@@ -31,4 +31,4 @@ $list.locale = 'zh-Hant';
 is $list.format(<一 丁 丈>), '一、丁和丈',     'zh-Hant: 3 elements';
 
 $list.locale = 'ar';
-is $list.format(<ﺍ ﺏ ﺕ>),    'ﺍ، ﺏ، ﻭ ﺕ',      'ar: 3 elements';
+is $list.format(<ﺍ ﺏ ﺕ>),    'ﺍ، ﺏ، و ﺕ',      'ar: 3 elements';
