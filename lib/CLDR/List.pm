@@ -51,7 +51,7 @@ has %!pattern;
 method format (*@list) {
     self!update-pattern;
 
-    given @list {
+    return given @list {
         when 0 { '' }
         when 1 { ~@list[0] }
         when 2 { %!pattern<2>.trans(@placeholders => @list) }
