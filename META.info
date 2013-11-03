@@ -1,7 +1,8 @@
 {
-    name: "CLDR::List",
-    version: "*",
-    description: "List formatter using the Unicode CLDR",
-    depends: [],
-    source-url: "git://github.com/perl-cldr/cldr-list-pm6.git"
+    "name"        : "CLDR::List",
+    "version"     : "*",
+    "description" : "Localized list formatters using the Unicode CLDR",
+    "author"      : "patch",
+    "depends"     : [],
+    "source-url"  : "git://github.com/perl-cldr/cldr-list-pm6.git"
 }

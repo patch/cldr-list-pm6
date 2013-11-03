@@ -1,7 +1,7 @@
 class CLDR::List is rw;
 
 constant @placeholders = <{0} {1}>;
-constant %patterns = {
+constant %patterns = { # TODO: update with full CLDR data
      root => { middle => '{0}, {1}', 2 => '{0}, {1}' },
      ar => { middle => '{0}، {1}', end => '{0}، و {1}', 2 => '{0} و {1}' },
      ca => { 2 => '{0} i {1}' },
@@ -44,6 +44,8 @@ constant %patterns = {
      'zh-Hant' => { middle => '{0}、{1}', 2 => '{0}和{1}' },
 };
 
+# TODO: support type varients
+# TODO: allow setting default locale?
 has $.locale = 'root';
 has $!previous-locale;
 has %!pattern;
@@ -51,7 +53,7 @@ has %!pattern;
 method format (*@list) {
     self!update-pattern;
 
-    return given @list {
+    return do given @list {
         when 0 { '' }
         when 1 { ~@list[0] }
         when 2 { %!pattern<2>.trans(@placeholders => @list) }
@@ -75,12 +77,78 @@ method format (*@list) {
     }
 }
 
+# TODO: does Perl 6 have attribute triggers like Moose?
 method !update-pattern {
-    return if $!previous-locale ~~ $!locale;
+    return if $!previous-locale && $!previous-locale eq $!locale;
 
+    # TODO: robust locale tag handling with fallbacks
     %!pattern = %patterns{$.locale} || %patterns<root>;
     %!pattern<middle> //= %patterns<root><middle>;
     %!pattern<start>  //= %!pattern<middle>;
     %!pattern<end>    //= %!pattern<2>;
     $!previous-locale = $.locale;
 }
+
+=begin pod
+
+=head1 NAME
+
+CLDR::List - Localized list formatters using the Unicode CLDR
+
+=head1 SYNOPSIS
+
+    use CLDR::List;
+
+    my $list  = CLDR::List.new(locale => 'en');
+    my @fruit = <apples oranges bananas>;
+
+    say $list.format(@fruit);      # apples, oranges, and bananas
+
+    $list.locale = 'en-GB';        # British English
+    say $list.format(@fruit);      # apples, oranges and bananas
+
+    $list.locale = 'zh-Hant';      # Traditional Chinese
+    say $list.format('１'..'４');  # １、２、３和４
+
+=head1 DESCRIPTION
+
+Localized list formatters using the Unicode CLDR.
+
+=head2 Attributes
+
+=over
+
+=item locale
+
+=back
+
+=head2 Methods
+
+=over
+
+=item format
+
+=back
+
+=head1 SEE ALSO
+
+=over
+
+=item * L<List Patterns in UTS #35: Unicode LDML|http://www.unicode.org/reports/tr35/tr35-general.html#ListPatterns>
+
+=item * L<Perl CLDR|http://perl-cldr.github.io/>
+
+=back
+
+=head1 AUTHOR
+
+Nick Patch <patch@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+© 2013 Nick Patch
+
+This library is free software; you can redistribute it and/or modify it under
+the same terms as Perl itself.
+
+=end pod
