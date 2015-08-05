@@ -38,11 +38,11 @@ Localized list formatters using the Unicode CLDR.
 
 # AUTHOR
 
-Nick Patch <patch@cpan.org>
+Nova Patch <patch@cpan.org>
 
 # COPYRIGHT AND LICENSE
 
-© 2013 Nick Patch
+© 2013–2015 Nova Patch
 
 This library is free software; you can redistribute it and/or modify it under
 the same terms as Perl itself.
