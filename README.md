@@ -33,8 +33,13 @@ Localized list formatters using the Unicode CLDR.
 
 # SEE ALSO
 
-- [List Patterns in UTS \#35: Unicode LDML](http://www.unicode.org/reports/tr35/tr35-general.html\#ListPatterns)
-- [Perl CLDR](http://perl-cldr.github.io/)
+- [List Patterns in UTS \#35: Unicode
+LDML](http://www.unicode.org/reports/tr35/tr35-general.html\#ListPatterns)
+- [Perl Advent Calendar:
+CLDR TL;DR](http://perladvent.org/2014/2014-12-23.html)
+- [Unicode beyond just characters: Localization with the
+CLDR](http://patch.codes/talks/localization-with-the-unicode-cldr/) (video and
+slides)
 
 # AUTHOR
 

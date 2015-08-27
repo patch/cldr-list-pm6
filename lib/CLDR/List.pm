@@ -134,9 +134,15 @@ Localized list formatters using the Unicode CLDR.
 
 =over
 
-=item * L<List Patterns in UTS #35: Unicode LDML|http://www.unicode.org/reports/tr35/tr35-general.html#ListPatterns>
+=item * L<List Patterns in UTS #35: Unicode
+LDML|http://www.unicode.org/reports/tr35/tr35-general.html#ListPatterns>
 
-=item * L<Perl CLDR|http://perl-cldr.github.io/>
+=item * L<Perl Advent Calendar:
+CLDR TL;DR|http://perladvent.org/2014/2014-12-23.html>
+
+=item * L<Unicode beyond just characters: Localization with the
+CLDR|http://patch.codes/talks/localization-with-the-unicode-cldr/> (video and
+slides)
 
 =back
 

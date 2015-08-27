@@ -5,5 +5,5 @@
     "description" : "Localized list formatters using the Unicode CLDR",
     "depends"     : [],
     "provides"    : { "CLDR::List" : "lib/CLDR/List.pm" },
-    "source-url"  : "git://github.com/perl-cldr/cldr-list-pm6.git"
+    "source-url"  : "git://github.com/patch/cldr-list-pm6.git"
 }
